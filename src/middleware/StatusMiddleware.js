@@ -1,9 +1,10 @@
-import { UI_READY } from '../modules/UIModule';
+import { UI_START, appReady } from '../modules/UIModule';
+import { fetchPatients } from '../modules/PatientsModule';
 
 function StatusMiddleware(store) {
   return next => (action) => {
     switch (action.type) {
-      case UI_READY:
+      case UI_START:
         appStart(store.dispatch);
         break;
       default:
@@ -14,8 +15,9 @@ function StatusMiddleware(store) {
 }
 
 // Beacon
-function appStart() {
-  console.log('app start');
+function appStart(dispatch) {
+  dispatch(fetchPatients());
+  setTimeout(() => dispatch(appReady()));
 }
 
 export default StatusMiddleware;

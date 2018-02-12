@@ -6,15 +6,18 @@ import {
 } from 'redux';
 // Reducers
 import ui from './modules/UIModule';
+import patients from './modules/PatientsModule';
 
 // Middleware
 import StatusMiddleware from './middleware/StatusMiddleware';
+import PatientsMiddleware from './middleware/PatientsMiddleware';
 
 const rootReducer = combineReducers({
   ui,
+  patients,
 });
 
-const middleware = applyMiddleware(StatusMiddleware);
+const middleware = applyMiddleware(StatusMiddleware, PatientsMiddleware);
 
 // eslint-disable-next-line
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
