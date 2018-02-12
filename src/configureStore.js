@@ -14,9 +14,7 @@ const rootReducer = combineReducers({
   ui,
 });
 
-const middleware = applyMiddleware(
-  StatusMiddleware,
-);
+const middleware = applyMiddleware(StatusMiddleware);
 
 // eslint-disable-next-line
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

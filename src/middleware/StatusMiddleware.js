@@ -1,5 +1,4 @@
-import { UI_READY } from 'modules/UIModule';
-import Urls from 'lib/urls';
+import { UI_READY } from '../modules/UIModule';
 
 function StatusMiddleware(store) {
   return next => (action) => {
@@ -14,17 +13,9 @@ function StatusMiddleware(store) {
   };
 }
 
-// Version check
+// Beacon
 function appStart() {
-  const url = Urls.GITHUB_PACKAGE_JSON;
-  const init = { method: 'GET' };
-
-  fetch(url, init).then(response => response.json())
-    .then((resp) => {
-      console.log(resp);
-    }).catch(() => {
-      // dispatch(goOffline);
-    });
+  console.log('app start');
 }
 
 export default StatusMiddleware;

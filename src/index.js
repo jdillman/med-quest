@@ -1,21 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
-import configureStore from './configureSture'
-import registerServiceWorker from './registerServiceWorker';
+import { Provider } from 'react-redux';
+import configureStore from './configureStore';
 
 import './index.css';
 import App from './App';
 
-let store = configureStore();
+const store = configureStore();
 
-const ConnectedApp = () => {
-  return (
-    <Provider store={store} >
-      <App />
-    </Provider>
-  );
-}
+/* eslint-disable react/jsx-filename-extension */
+const ConnectedApp = () => (
+  <Provider store={store} >
+    <App />
+  </Provider>
+);
 
 ReactDOM.render(<ConnectedApp />, document.getElementById('root'));
-registerServiceWorker();

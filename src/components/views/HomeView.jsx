@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
-import PatientListContainer from 'containers/PatientListContainer';
+import PatientList from '../../containers/PatientListContainer';
+import TaskList from '../../containers/TaskListContainer';
 
-import './Home.css';
+// import './Home.css';
 
 export default class Home extends Component {
+  componentDidMount() {
+    // Compmounted
+  }
   render() {
     return (
       <div>
@@ -18,5 +22,4 @@ export default class Home extends Component {
     );
   }
 }
-
 
