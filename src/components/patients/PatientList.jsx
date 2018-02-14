@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import './Home.css';
+import './PatientList.css';
+
+/* eslint-disable react/prop-types */
+const Img = props => (
+  <img src={props.src} alt={props.alt} />
+);
 
 class PatientList extends Component {
   componentDidMount() {
@@ -9,18 +14,27 @@ class PatientList extends Component {
   }
 
   renderPatientList() {
-    return this.props.patients.map(patient => (
-      <div key={patient.id}>
-        <span>Name</span>
-        <img alt={patient.last_name} src={patient.avatar} />
-        <span>{patient.first_name}</span>
-      </div>
-    ));
+    const { patients } = this.props;
+    if (!patients.length) {
+      return 'No Patients defined';
+    }
+
+    return (
+      <ol>
+        {this.props.patients.map(patient => (
+          <li key={patient.id} >
+            <Img alt={patient.last_name} src={patient.avatar} />
+            <span>Name</span>
+            <span>{patient.first_name}</span>
+          </li>
+          ))}
+      </ol>
+    );
   }
 
   render() {
     return (
-      <div>
+      <div className="PatientList">
         Patients
         { this.renderPatientList() }
       </div>

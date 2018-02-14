@@ -3,15 +3,15 @@ import React, { Component } from 'react';
 import PatientList from '../../containers/PatientListContainer';
 import TaskList from '../../containers/TaskListContainer';
 
-// import './Home.css';
+import './HomeView.css';
 
-export default class Home extends Component {
+export default class HomeView extends Component {
   componentDidMount() {
     // Compmounted
   }
   render() {
     return (
-      <div>
+      <div className="HomeView">
         <section>
           <TaskList />
         </section>
